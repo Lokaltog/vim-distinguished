@@ -42,6 +42,9 @@ call s:ColorDictParser({
 	\ , 'SignColumn'                  : [    231,    233,           'bold']
 	\ , 'ColorColumn'                 : [  'none',   235,           'none']
 	\
+	\ , 'StatusLine'                  : [    231,    236,           'bold']
+	\ , 'StatusLineNC'                : [    244,    232,           'none']
+	\
 	\ , 'LineNr'                      : [    243,    235,           'none']
 	\ , 'VertSplit'                   : [    240,    234,           'none']
 	\
