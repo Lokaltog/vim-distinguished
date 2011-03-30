@@ -31,11 +31,7 @@
 "        | Highlight group                |    FG |    BG |      Attributes |
 "        |--------------------------------|-------|-------|-----------------|
 call s:ColorDictParser({
-	\   'xmlTag'                      : [    149, 'none',           'bold']
-	\ , 'xmlTagName'                  : [    250, 'none',           'none']
-	\ , 'xmlEndTag'                   : [    209, 'none',           'bold']
-	\
-	\ , 'Normal'                      : [    231, 'none',           'none']
+	\   'Normal'                      : [    231, 'none',           'none']
 	\ , 'Visual'                      : [ 'none',    239,           'none']
 	\
 	\ , 'CursorLine'                  : [    231,    237,           'none']
@@ -107,6 +103,10 @@ call s:ColorDictParser({
 	\ , 'PHPClassTag'                 : [    253, 'none',           'none']
 	\ , 'PHPInterfaceTag'             : [    253, 'none',           'none']
 	\ , 'PHPFunctionTag'              : [    222, 'none',           'bold']
+	\
+	\ , 'xmlTag'                      : [    149, 'none',           'bold']
+	\ , 'xmlTagName'                  : [    250, 'none',           'none']
+	\ , 'xmlEndTag'                   : [    209, 'none',           'bold']
 	\
 	\ , 'cssImportant'                : [    166, 'none',           'bold']
 	\
