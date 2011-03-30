@@ -31,11 +31,7 @@
 "        | Highlight group                |    FG |    BG |      Attributes |
 "        |--------------------------------|-------|-------|-----------------|
 call s:ColorDictParser({
-	\   'xmlTag'                      : [    149, 'none',           'bold']
-	\ , 'xmlTagName'                  : [    250, 'none',           'none']
-	\ , 'xmlEndTag'                   : [    209, 'none',           'bold']
-	\
-	\ , 'Normal'                      : [    231, 'none',           'none']
+	\   'Normal'                      : [    231, 'none',           'none']
 	\ , 'Visual'                      : [ 'none',    239,           'none']
 	\
 	\ , 'CursorLine'                  : [    231,    237,           'none']
@@ -45,6 +41,9 @@ call s:ColorDictParser({
 	\ , 'FoldColumn'                  : [    243,    234,           'none']
 	\ , 'SignColumn'                  : [    231,    233,           'bold']
 	\ , 'ColorColumn'                 : [  'none',   235,           'none']
+	\
+	\ , 'StatusLine'                  : [    231,    236,           'bold']
+	\ , 'StatusLineNC'                : [    244,    232,           'none']
 	\
 	\ , 'LineNr'                      : [    243,    235,           'none']
 	\ , 'VertSplit'                   : [    240,    234,           'none']
@@ -59,8 +58,9 @@ call s:ColorDictParser({
 	\ , 'ErrorMsg'                    : [    196, 'none',           'bold']
 	\
 	\ , 'Comment'                     : [    243,    233,           'none']
-	\ , 'vimCommentTitle'             : [    250, 'none',           'none']
-	\ , 'vimCommentString'            : [    245, 'none',           'none']
+	\ , 'vimCommentTitleLeader'       : [    250,    233,           'none']
+	\ , 'vimCommentTitle'             : [    250,    233,           'none']
+	\ , 'vimCommentString'            : [    245,    233,           'none']
 	\
 	\ , 'TabLine'                     : [    231,    238,           'none']
 	\ , 'TabLineSel'                  : [    255, 'none',           'bold']
@@ -107,6 +107,10 @@ call s:ColorDictParser({
 	\ , 'PHPClassTag'                 : [    253, 'none',           'none']
 	\ , 'PHPInterfaceTag'             : [    253, 'none',           'none']
 	\ , 'PHPFunctionTag'              : [    222, 'none',           'bold']
+	\
+	\ , 'xmlTag'                      : [    149, 'none',           'bold']
+	\ , 'xmlTagName'                  : [    250, 'none',           'none']
+	\ , 'xmlEndTag'                   : [    209, 'none',           'bold']
 	\
 	\ , 'cssImportant'                : [    166, 'none',           'bold']
 	\
