@@ -55,8 +55,9 @@ call s:ColorDictParser({
 	\ , 'ErrorMsg'                    : [    196, 'none',           'bold']
 	\
 	\ , 'Comment'                     : [    243,    233,           'none']
-	\ , 'vimCommentTitle'             : [    250, 'none',           'none']
-	\ , 'vimCommentString'            : [    245, 'none',           'none']
+	\ , 'vimCommentTitleLeader'       : [    250,    233,           'none']
+	\ , 'vimCommentTitle'             : [    250,    233,           'none']
+	\ , 'vimCommentString'            : [    245,    233,           'none']
 	\
 	\ , 'TabLine'                     : [    231,    238,           'none']
 	\ , 'TabLineSel'                  : [    255, 'none',           'bold']
