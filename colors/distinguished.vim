@@ -9,7 +9,7 @@
 		syntax reset
 	endif
 
-	let g:colors_name = 'Distinguished'
+	let g:colors_name = 'distinguished'
 
 	if &t_Co != 256 || has('gui_running')
 		echoe 'The ' . g:colors_name . ' color scheme requires a 256-color terminal'
