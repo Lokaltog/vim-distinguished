@@ -32,7 +32,7 @@
 "        |--------------------------------|-------|-------|-----------------|
 call s:ColorDictParser({
 	\   'Normal'                      : [    231, 'NONE',           'NONE']
-	\ , 'Visual'                      : [ 'NONE',    239,           'NONE']
+	\ , 'Visual'                      : [    240,    253,           'NONE']
 	\
 	\ , 'CursorLine'                  : [    231,    237,           'NONE']
 	\ , 'CursorColumn'                : [    231,    237,           'NONE']
@@ -76,7 +76,7 @@ call s:ColorDictParser({
 	\ , 'Special'                     : [    150, 'NONE',           'NONE']
 	\ , 'Identifier'                  : [     66, 'NONE',           'bold']
 	\ , 'Statement'                   : [    186, 'NONE',           'bold']
-	\ , 'PreProc'                     : [    144, 'NONE',           'NONE']
+	\ , 'PreProc'                     : [    247, 'NONE',           'NONE']
 	\ , 'Type'                        : [     67, 'NONE',           'bold']
 	\ , 'String'                      : [    143, 'NONE',           'NONE']
 	\ , 'Number'                      : [    173, 'NONE',           'NONE']
@@ -88,6 +88,7 @@ call s:ColorDictParser({
 	\ , 'Keyword'                     : [    173, 'NONE',           'NONE']
 	\ , 'Search'                      : [     16,    227, 'underline,bold']
 	\ , 'Title'                       : [     15, 'NONE',           'NONE']
+	\ , 'Delimiter'                   : [    246, 'NONE',           'NONE']
 	\
 	\ , 'TODO'                        : [    228,     94,           'bold']
 	\
