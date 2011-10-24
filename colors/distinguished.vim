@@ -11,137 +11,148 @@
 
 	let g:colors_name = 'distinguished'
 
-	if &t_Co != 256 || has('gui_running')
-		echoe 'The ' . g:colors_name . ' color scheme requires a 256-color terminal'
+	if ! has('gui_running')
+		if &t_Co != 256
+			echoe 'The ' . g:colors_name . ' color scheme requires gvim or a 256-color terminal'
 
-		finish
+			finish
+		endif
 	endif
 " }}}
 " Color dictionary parser {{{
 	function! s:ColorDictParser(color_dict)
 		for [group, group_colors] in items(a:color_dict)
 			exec 'hi ' . group
-				\ . ( ! empty(group_colors[0]) ? ' ctermfg=' . group_colors[0]: '')
-				\ . ( ! empty(group_colors[1]) ? ' ctermbg=' . group_colors[1]: '')
-				\ . ( ! empty(group_colors[2]) ? '   cterm=' . group_colors[2]: '')
+				\ . ' ctermfg=' . (group_colors[0] == '' ? 'NONE' :       group_colors[0])
+				\ . ' ctermbg=' . (group_colors[1] == '' ? 'NONE' :       group_colors[1])
+				\ . '   cterm=' . (group_colors[2] == '' ? 'NONE' :       group_colors[2])
+				\
+				\ . '   guifg=' . (group_colors[3] == '' ? 'NONE' : '#' . group_colors[3])
+				\ . '   guibg=' . (group_colors[4] == '' ? 'NONE' : '#' . group_colors[4])
+				\ . '     gui=' . (group_colors[5] == '' ? 'NONE' :       group_colors[5])
 		endfor
 	endfunction
 " }}}
 
-"        | Highlight group                |    FG |    BG |      Attributes |
-"        |--------------------------------|-------|-------|-----------------|
+"	   | Highlight group                |  CTFG |  CTBG |    CTAttributes | || |   GUIFG |    GUIBG |   GUIAttributes |
+"	   |--------------------------------|-------|-------|-----------------| || |---------|----------|-----------------|
 call s:ColorDictParser({
-	\   'Normal'                      : [    231, 'NONE',           'NONE']
-	\ , 'Visual'                      : [    240,    253,           'NONE']
+	\   'Normal'                      : [    231,     '',               '',      'ffffff',  '000000',               '']
+	\ , 'Visual'                      : [    240,    253,               '',      '585858',  'dadada',               '']
 	\
-	\ , 'CursorLine'                  : [    231,    237,           'NONE']
-	\ , 'CursorColumn'                : [    231,    237,           'NONE']
+	\ , 'Cursor'                      : [     '',     '',               '',      'ffffff',  'dd4010',               '']
+	\ , 'lCursor'                     : [     '',     '',               '',      'ffffff',  '89b6e2',               '']
 	\
-	\ , 'Folded'                      : [    249,    234,           'NONE']
-	\ , 'FoldColumn'                  : [    243,    234,           'NONE']
-	\ , 'SignColumn'                  : [    231,    233,           'bold']
-	\ , 'ColorColumn'                 : [  'NONE',   235,           'NONE']
+	\ , 'CursorLine'                  : [    231,    237,               '',      'ffffff',  '3a3a3a',               '']
+	\ , 'CursorColumn'                : [    231,    237,               '',      'ffffff',  '3a3a3a',               '']
 	\
-	\ , 'StatusLine'                  : [    231,    236,           'bold']
-	\ , 'StatusLineNC'                : [    244,    232,           'NONE']
+	\ , 'Folded'                      : [    249,    234,               '',      'b2b2b2',  '1c1c1c',               '']
+	\ , 'FoldColumn'                  : [    243,    234,               '',      '767676',  '1c1c1c',               '']
+	\ , 'SignColumn'                  : [    231,    233,           'bold',      'ffffff',  '121212',           'bold']
+	\ , 'ColorColumn'                 : [      '',   235,               '',            '',  '262626',               '']
 	\
-	\ , 'LineNr'                      : [    243,    235,           'NONE']
-	\ , 'VertSplit'                   : [    240,    234,           'NONE']
+	\ , 'StatusLine'                  : [    231,    236,           'bold',      'ffffff',  '303030',           'bold']
+	\ , 'StatusLineNC'                : [    244,    232,               '',      '808080',  '080808',               '']
 	\
-	\ , 'WildMenu'                    : [    234,    231,           'NONE']
-	\ , 'Directory'                   : [    143, 'NONE',           'bold']
-	\ , 'Underlined'                  : [    130, 'NONE',           'NONE']
+	\ , 'LineNr'                      : [    243,    235,               '',      '767676',  '262626',               '']
+	\ , 'VertSplit'                   : [    240,    234,               '',      '585858',  '1c1c1c',               '']
 	\
-	\ , 'Question'                    : [     74, 'NONE',           'bold']
-	\ , 'MoreMsg'                     : [    214, 'NONE',           'bold']
-	\ , 'WarningMsg'                  : [    202, 'NONE',           'bold']
-	\ , 'ErrorMsg'                    : [    196, 'NONE',           'bold']
+	\ , 'WildMenu'                    : [    234,    231,               '',      '1c1c1c',  'ffffff',               '']
+	\ , 'Directory'                   : [    143,     '',           'bold',      'afaf5f',        '',           'bold']
+	\ , 'Underlined'                  : [    130,     '',               '',      'af5f00',        '',               '']
 	\
-	\ , 'Comment'                     : [    243,    233,           'NONE']
-	\ , 'vimCommentTitleLeader'       : [    250,    233,           'NONE']
-	\ , 'vimCommentTitle'             : [    250,    233,           'NONE']
-	\ , 'vimCommentString'            : [    245,    233,           'NONE']
+	\ , 'Question'                    : [     74,     '',           'bold',      '5fafd7',        '',           'bold']
+	\ , 'MoreMsg'                     : [    214,     '',           'bold',      'ffaf00',        '',           'bold']
+	\ , 'WarningMsg'                  : [    202,     '',           'bold',      'ff5f00',        '',           'bold']
+	\ , 'ErrorMsg'                    : [    196,     '',           'bold',      'ff0000',        '',           'bold']
 	\
-	\ , 'TabLine'                     : [    231,    238,           'NONE']
-	\ , 'TabLineSel'                  : [    255, 'NONE',           'bold']
-	\ , 'TabLineFill'                 : [    240,    238,           'NONE']
-	\ , 'TabLineNumber'               : [    160,    238,           'bold']
-	\ , 'TabLineClose'                : [    245,    238,           'bold']
+	\ , 'Comment'                     : [    243,    233,               '',      '767676',  '121212',               '']
+	\ , 'vimCommentTitleLeader'       : [    250,    233,               '',      'bcbcbc',  '121212',               '']
+	\ , 'vimCommentTitle'             : [    250,    233,               '',      'bcbcbc',  '121212',               '']
+	\ , 'vimCommentString'            : [    245,    233,               '',      '8a8a8a',  '121212',               '']
 	\
-	\ , 'SpecialKey'                  : [    239, 'NONE',           'NONE']
-	\ , 'NonText'                     : [     88, 'NONE',           'NONE']
-	\ , 'MatchParen'                  : [    196,     88,           'bold']
+	\ , 'TabLine'                     : [    231,    238,               '',      'ffffff',  '444444',               '']
+	\ , 'TabLineSel'                  : [    255,     '',           'bold',      'eeeeee',        '',           'bold']
+	\ , 'TabLineFill'                 : [    240,    238,               '',      '585858',  '444444',               '']
+	\ , 'TabLineNumber'               : [    160,    238,           'bold',      'd70000',  '444444',           'bold']
+	\ , 'TabLineClose'                : [    245,    238,           'bold',      '8a8a8a',  '444444',           'bold']
 	\
-	\ , 'Constant'                    : [    137, 'NONE',           'bold']
-	\ , 'Special'                     : [    150, 'NONE',           'NONE']
-	\ , 'Identifier'                  : [     66, 'NONE',           'bold']
-	\ , 'Statement'                   : [    186, 'NONE',           'bold']
-	\ , 'PreProc'                     : [    247, 'NONE',           'NONE']
-	\ , 'Type'                        : [     67, 'NONE',           'bold']
-	\ , 'String'                      : [    143, 'NONE',           'NONE']
-	\ , 'Number'                      : [    173, 'NONE',           'NONE']
-	\ , 'Define'                      : [    173, 'NONE',           'NONE']
-	\ , 'Error'                       : [    208,    124,           'NONE']
-	\ , 'Function'                    : [    179, 'NONE',           'NONE']
-	\ , 'Include'                     : [    173, 'NONE',           'NONE']
-	\ , 'PreCondit'                   : [    173, 'NONE',           'NONE']
-	\ , 'Keyword'                     : [    173, 'NONE',           'NONE']
-	\ , 'Search'                      : [     16,    227, 'underline,bold']
-	\ , 'Title'                       : [     15, 'NONE',           'NONE']
-	\ , 'Delimiter'                   : [    246, 'NONE',           'NONE']
+	\ , 'SpellCap'                    : [    231,     31,           'bold',      'ffffff',  '0087af',           'bold']
 	\
-	\ , 'TODO'                        : [    228,     94,           'bold']
+	\ , 'SpecialKey'                  : [    239,     '',               '',      '4e4e4e',        '',               '']
+	\ , 'NonText'                     : [     88,     '',               '',      '870000',        '',               '']
+	\ , 'MatchParen'                  : [    196,     88,           'bold',      'ff0000',  '870000',           'bold']
 	\
-	\ , 'Pmenu'                       : [    248,    240,           'NONE']
-	\ , 'PmenuSel'                    : [    253,    245,           'NONE']
-	\ , 'PmenuSbar'                   : [    253,    248,           'NONE']
+	\ , 'Constant'                    : [    137,     '',           'bold',      'af875f',        '',           'bold']
+	\ , 'Special'                     : [    150,     '',               '',      'afd787',        '',               '']
+	\ , 'Identifier'                  : [     66,     '',           'bold',      '5f8787',        '',           'bold']
+	\ , 'Statement'                   : [    186,     '',           'bold',      'd7d787',        '',           'bold']
+	\ , 'PreProc'                     : [    247,     '',               '',      '9e9e9e',        '',               '']
+	\ , 'Type'                        : [     67,     '',           'bold',      '5f87af',        '',           'bold']
+	\ , 'String'                      : [    143,     '',               '',      'afaf5f',        '',               '']
+	\ , 'Number'                      : [    173,     '',               '',      'd7875f',        '',               '']
+	\ , 'Define'                      : [    173,     '',               '',      'd7875f',        '',               '']
+	\ , 'Error'                       : [    208,    124,               '',      'ff8700',  'af0000',               '']
+	\ , 'Function'                    : [    179,     '',               '',      'd7af5f',        '',               '']
+	\ , 'Include'                     : [    173,     '',               '',      'd7875f',        '',               '']
+	\ , 'PreCondit'                   : [    173,     '',               '',      'd7875f',        '',               '']
+	\ , 'Keyword'                     : [    173,     '',               '',      'd7875f',        '',               '']
+	\ , 'Search'                      : [     16,    227, 'underline,bold',      '000000',  'ffff5f', 'underline,bold']
+	\ , 'Title'                       : [    231,     '',               '',      'ffffff',        '',               '']
+	\ , 'Delimiter'                   : [    246,     '',               '',      '949494',        '',               '']
 	\
-	\ , 'phpEOL'                      : [    245, 'NONE',           'NONE']
-	\ , 'phpStringDelim'              : [     94, 'NONE',           'NONE']
-	\ , 'phpDelimiter'                : [    160, 'NONE',           'NONE']
-	\ , 'phpFunctions'                : [    221, 'NONE',           'bold']
-	\ , 'phpBoolean'                  : [    172, 'NONE',           'bold']
-	\ , 'phpOperator'                 : [    215, 'NONE',           'NONE']
-	\ , 'phpMemberSelector'           : [    138, 'NONE',           'bold']
-	\ , 'phpParent'                   : [    227, 'NONE',           'NONE']
+	\ , 'TODO'                        : [    228,     94,           'bold',      'ffff87',  '875f00',           'bold']
 	\
-	\ , 'PHPClassTag'                 : [    253, 'NONE',           'NONE']
-	\ , 'PHPInterfaceTag'             : [    253, 'NONE',           'NONE']
-	\ , 'PHPFunctionTag'              : [    222, 'NONE',           'bold']
+	\ , 'Pmenu'                       : [    248,    240,               '',      'a8a8a8',  '585858',               '']
+	\ , 'PmenuSel'                    : [    253,    245,               '',      'dadada',  '8a8a8a',               '']
+	\ , 'PmenuSbar'                   : [    253,    248,               '',      'dadada',  'a8a8a8',               '']
 	\
-	\ , 'pythonDocString'             : [    240,    233,           'NONE']
-	\ , 'pythonDocStringTitle'        : [    245,    233,           'NONE']
-	\ , 'pythonRun'                   : [     65, 'NONE',           'NONE']
-	\ , 'pythonBuiltinObj'            : [     67, 'NONE',           'bold']
-	\ , 'pythonSelf'                  : [    250, 'NONE',           'bold']
-	\ , 'pythonFunction'              : [    179, 'NONE',           'bold']
-	\ , 'pythonClass'                 : [    221, 'NONE',           'bold']
-	\ , 'pythonExClass'               : [    130, 'NONE',           'NONE']
-	\ , 'pythonException'             : [    130, 'NONE',           'bold']
-	\ , 'pythonOperator'              : [    186, 'NONE',           'NONE']
-	\ , 'pythonPreCondit'             : [    152, 'NONE',           'bold']
-	\ , 'pythonDottedName'            : [    166, 'NONE',           'NONE']
-	\ , 'pythonDecorator'             : [    124, 'NONE',           'bold']
-	\ , 'PythonInterfaceTag'          : [    109, 'NONE',           'NONE']
-	\ , 'PythonClassTag'              : [    221, 'NONE',           'NONE']
-	\ , 'PythonFunctionTag'           : [    109, 'NONE',           'NONE']
-	\ , 'PythonVariableTag'           : [    253, 'NONE',           'NONE']
-	\ , 'PythonMemberTag'             : [    145, 'NONE',           'NONE']
+	\ , 'phpEOL'                      : [    245,     '',               '',      'dadada',        '',               '']
+	\ , 'phpStringDelim'              : [     94,     '',               '',      '875f00',        '',               '']
+	\ , 'phpDelimiter'                : [    160,     '',               '',      'd70000',        '',               '']
+	\ , 'phpFunctions'                : [    221,     '',           'bold',      'ffd75f',        '',           'bold']
+	\ , 'phpBoolean'                  : [    172,     '',           'bold',      'd78700',        '',           'bold']
+	\ , 'phpOperator'                 : [    215,     '',               '',      'ffaf5f',        '',               '']
+	\ , 'phpMemberSelector'           : [    138,     '',           'bold',      'af8787',        '',           'bold']
+	\ , 'phpParent'                   : [    227,     '',               '',      'ffff5f',        '',               '']
 	\
-	\ , 'xmlTag'                      : [    149, 'NONE',           'bold']
-	\ , 'xmlTagName'                  : [    250, 'NONE',           'NONE']
-	\ , 'xmlEndTag'                   : [    209, 'NONE',           'bold']
+	\ , 'PHPClassTag'                 : [    253,     '',               '',      'dadada',        '',               '']
+	\ , 'PHPInterfaceTag'             : [    253,     '',               '',      'dadada',        '',               '']
+	\ , 'PHPFunctionTag'              : [    222,     '',           'bold',      'ffd787',        '',           'bold']
 	\
-	\ , 'cssImportant'                : [    166, 'NONE',           'bold']
+	\ , 'pythonDocString'             : [    240,    233,               '',      '585858',  '121212',               '']
+	\ , 'pythonDocStringTitle'        : [    245,    233,               '',      'dadada',  '121212',               '']
+	\ , 'pythonRun'                   : [     65,     '',               '',      '5f875f',        '',               '']
+	\ , 'pythonBuiltinObj'            : [     67,     '',           'bold',      '5f87af',        '',           'bold']
+	\ , 'pythonSelf'                  : [    250,     '',           'bold',      'bcbcbc',        '',           'bold']
+	\ , 'pythonFunction'              : [    179,     '',           'bold',      'd7af5f',        '',           'bold']
+	\ , 'pythonClass'                 : [    221,     '',           'bold',      'ffd75f',        '',           'bold']
+	\ , 'pythonExClass'               : [    130,     '',               '',      'af5f00',        '',               '']
+	\ , 'pythonException'             : [    130,     '',           'bold',      'af5f00',        '',           'bold']
+	\ , 'pythonOperator'              : [    186,     '',               '',      'd7d787',        '',               '']
+	\ , 'pythonPreCondit'             : [    152,     '',           'bold',      'afd7d7',        '',           'bold']
+	\ , 'pythonDottedName'            : [    166,     '',               '',      'd75f00',        '',               '']
+	\ , 'pythonDecorator'             : [    124,     '',           'bold',      'af0000',        '',           'bold']
+	\ , 'PythonInterfaceTag'          : [    109,     '',               '',      '87afaf',        '',               '']
+	\ , 'PythonClassTag'              : [    221,     '',               '',      'ffd75f',        '',               '']
+	\ , 'PythonFunctionTag'           : [    109,     '',               '',      '87afaf',        '',               '']
+	\ , 'PythonVariableTag'           : [    253,     '',               '',      'dadada',        '',               '']
+	\ , 'PythonMemberTag'             : [    145,     '',               '',      'afafaf',        '',               '']
 	\
-	\ , 'DiffAdd'                     : [    112,     22,           'NONE']
-	\ , 'DiffChange'                  : [    220,     94,           'NONE']
-	\ , 'DiffDelete'                  : [    160, 'NONE',           'NONE']
-	\ , 'DiffText'                    : [    220,     94,   'reverse,bold']
+	\ , 'xmlTag'                      : [    149,     '',           'bold',      'afd75f',        '',           'bold']
+	\ , 'xmlTagName'                  : [    250,     '',               '',      'bcbcbc',        '',               '']
+	\ , 'xmlEndTag'                   : [    209,     '',           'bold',      'ff875f',        '',           'bold']
 	\
-	\ , 'diffLine'                    : [     68, 'NONE',           'bold']
-	\ , 'diffFile'                    : [    242, 'NONE',           'NONE']
-	\ , 'diffNewFile'                 : [    242, 'NONE',           'NONE']
+	\ , 'cssImportant'                : [    166,     '',           'bold',      'd75f00',        '',           'bold']
+	\
+	\ , 'DiffAdd'                     : [    112,     22,               '',      '87d700',  '005f00',               '']
+	\ , 'DiffChange'                  : [    220,     94,               '',      'ffd700',  '875f00',               '']
+	\ , 'DiffDelete'                  : [    160,     '',               '',      'd70000',        '',               '']
+	\ , 'DiffText'                    : [    220,     94,   'reverse,bold',      'ffd700',  '875f00',   'reverse,bold']
+	\
+	\ , 'diffLine'                    : [     68,     '',           'bold',      '5f87d7',        '',           'bold']
+	\ , 'diffFile'                    : [    242,     '',               '',      '6c6c6c',        '',               '']
+	\ , 'diffNewFile'                 : [    242,     '',               '',      '6c6c6c',        '',               '']
 \ })
 
 hi link htmlTag            xmlTag
