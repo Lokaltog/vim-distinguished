@@ -43,13 +43,13 @@ call s:ColorDictParser({
 	\ , 'Cursor'                      : [     '',     '',               '',      'ffffff',  'dd4010',               '']
 	\ , 'lCursor'                     : [     '',     '',               '',      'ffffff',  '89b6e2',               '']
 	\
-	\ , 'CursorLine'                  : [    231,    237,               '',      'ffffff',  '3a3a3a',               '']
+	\ , 'CursorLine'                  : [     '',    236,               '',            '',  '3a3a3a',               '']
 	\ , 'CursorColumn'                : [    231,    237,               '',      'ffffff',  '3a3a3a',               '']
 	\
 	\ , 'Folded'                      : [    249,    234,               '',      'b2b2b2',  '1c1c1c',               '']
 	\ , 'FoldColumn'                  : [    243,    234,               '',      '767676',  '1c1c1c',               '']
 	\ , 'SignColumn'                  : [    231,    233,           'bold',      'ffffff',  '121212',           'bold']
-	\ , 'ColorColumn'                 : [      '',   235,               '',            '',  '262626',               '']
+	\ , 'ColorColumn'                 : [      '',   233,               '',            '',  '262626',               '']
 	\
 	\ , 'StatusLine'                  : [    231,    236,           'bold',      'ffffff',  '303030',           'bold']
 	\ , 'StatusLineNC'                : [    244,    232,               '',      '808080',  '080808',               '']
