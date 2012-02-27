@@ -133,11 +133,18 @@ call s:ColorDictParser({
 	\ , 'pythonPreCondit'             : [    152,     '',           'bold',      'afd7d7',        '',           'bold']
 	\ , 'pythonDottedName'            : [    166,     '',               '',      'd75f00',        '',               '']
 	\ , 'pythonDecorator'             : [    124,     '',           'bold',      'af0000',        '',           'bold']
+	\
 	\ , 'PythonInterfaceTag'          : [    109,     '',               '',      '87afaf',        '',               '']
 	\ , 'PythonClassTag'              : [    221,     '',               '',      'ffd75f',        '',               '']
 	\ , 'PythonFunctionTag'           : [    109,     '',               '',      '87afaf',        '',               '']
 	\ , 'PythonVariableTag'           : [    253,     '',               '',      'dadada',        '',               '']
 	\ , 'PythonMemberTag'             : [    145,     '',               '',      'afafaf',        '',               '']
+	\
+	\ , 'CTagsImport'                 : [    109,     '',               '',      '87afaf',        '',               '']
+	\ , 'CTagsClass'                  : [    221,     '',               '',      'ffd75f',        '',               '']
+	\ , 'CTagsFunction'               : [    109,     '',               '',      '87afaf',        '',               '']
+	\ , 'CTagsGlobalVariable'         : [    253,     '',               '',      'dadada',        '',               '']
+	\ , 'CTagsMember'                 : [    145,     '',               '',      'afafaf',        '',               '']
 	\
 	\ , 'xmlTag'                      : [    149,     '',           'bold',      'afd75f',        '',           'bold']
 	\ , 'xmlTagName'                  : [    250,     '',               '',      'bcbcbc',        '',               '']
