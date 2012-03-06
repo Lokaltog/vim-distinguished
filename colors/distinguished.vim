@@ -97,11 +97,14 @@ call s:ColorDictParser({
 	\ , 'Include'                     : [    173,     '',               '',      'd7875f',        '',               '']
 	\ , 'PreCondit'                   : [    173,     '',               '',      'd7875f',        '',               '']
 	\ , 'Keyword'                     : [    173,     '',               '',      'd7875f',        '',               '']
-	\ , 'Search'                      : [     16,    227, 'underline,bold',      '000000',  'ffff5f', 'underline,bold']
+	\ , 'Search'                      : [    231,    131,               '',      '000000',  'ffff5f', 'underline,bold']
 	\ , 'Title'                       : [    231,     '',               '',      'ffffff',        '',               '']
 	\ , 'Delimiter'                   : [    246,     '',               '',      '949494',        '',               '']
 	\
 	\ , 'TODO'                        : [    228,     94,           'bold',      'ffff87',  '875f00',           'bold']
+	\
+	\ , 'SyntasticWarning'            : [    220,     94,               '',      'ffff87',  '875f00',           'bold']
+	\ , 'SyntasticError'              : [    202,     52,               '',      'ffff87',  '875f00',           'bold']
 	\
 	\ , 'Pmenu'                       : [    248,    240,               '',      'a8a8a8',  '585858',               '']
 	\ , 'PmenuSel'                    : [    253,    245,               '',      'dadada',  '8a8a8a',               '']
