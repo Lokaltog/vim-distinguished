@@ -100,6 +100,7 @@ call s:ColorDictParser({
 	\ , 'Search'                      : [    231,    131,               '',      '000000',  'ffff5f', 'underline,bold']
 	\ , 'Title'                       : [    231,     '',               '',      'ffffff',        '',               '']
 	\ , 'Delimiter'                   : [    246,     '',               '',      '949494',        '',               '']
+	\ , 'StorageClass'                : [    187,     '',               '',      'd7d7af',        '',               '']
 	\
 	\ , 'TODO'                        : [    228,     94,           'bold',      'ffff87',  '875f00',           'bold']
 	\
