@@ -102,6 +102,7 @@ call s:ColorDictParser({
 	\ , 'Title'                       : [    231,     '',               '',      'ffffff',        '',               '']
 	\ , 'Delimiter'                   : [    246,     '',               '',      '949494',        '',               '']
 	\ , 'StorageClass'                : [    187,     '',               '',      'd7d7af',        '',               '']
+	\ , 'Operator'                    : [    180,     '',               '',      'd7af87',        '',               '']
 	\
 	\ , 'TODO'                        : [    228,     94,           'bold',      'ffff87',  '875f00',           'bold']
 	\
