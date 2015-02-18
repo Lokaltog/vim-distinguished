@@ -109,9 +109,10 @@ call s:ColorDictParser({
 	\ , 'SyntasticWarning'            : [    220,     94,               '',      'ffff87',  '875f00',           'bold']
 	\ , 'SyntasticError'              : [    202,     52,               '',      'ffff87',  '875f00',           'bold']
 	\
-	\ , 'Pmenu'                       : [    248,    240,               '',      'a8a8a8',  '585858',               '']
-	\ , 'PmenuSel'                    : [    253,    245,               '',      'dadada',  '8a8a8a',               '']
-	\ , 'PmenuSbar'                   : [    253,    248,               '',      'dadada',  'a8a8a8',               '']
+	\ , 'Pmenu'                       : [    248,    234,               '',      'a8a8a8',  '1c1c1c',               '']
+	\ , 'PmenuSel'                    : [    234,    231,               '',      '1c1c1c',  'ffffff',               '']
+	\ , 'PmenuSbar'                   : [    253,    233,               '',      'dadada',  '121212',               '']
+	\ , 'PmenuThumb'                  : [    253,    236,               '',      'dadada',  '3a3a3a',               '']
 	\
 	\ , 'phpEOL'                      : [    245,     '',               '',      'dadada',        '',               '']
 	\ , 'phpStringDelim'              : [     94,     '',               '',      '875f00',        '',               '']
