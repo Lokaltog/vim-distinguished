@@ -55,7 +55,7 @@ call s:ColorDictParser({
 	\ , 'StatusLine'                  : [    231,    236,           'bold',      'ffffff',  '303030',           'bold']
 	\ , 'StatusLineNC'                : [    244,    232,               '',      '808080',  '080808',               '']
 	\
-	\ , 'LineNr'                      : [    224,    '',               '',      '767676',         '',               '']
+	\ , 'LineNr'                      : [    234,    '',               '',       '1c1c1c',        '',               '']
 	\ , 'VertSplit'                   : [    240,     '',               '',      '585858',  '1c1c1c',               '']
 	\
 	\ , 'WildMenu'                    : [    234,    231,               '',      '1c1c1c',  'ffffff',               '']
