@@ -37,28 +37,28 @@
 "	   | Highlight group                |  CTFG |  CTBG |    CTAttributes | || |   GUIFG |    GUIBG |   GUIAttributes |
 "	   |--------------------------------|-------|-------|-----------------| || |---------|----------|-----------------|
 call s:ColorDictParser({
-	\   'Normal'                      : [    250,     16,               '',      'c5c6c8',  '000000',               '']
+	\   'Normal'                      : [    251,     16,               '',      'c6c6c6',  '000000',               '']
 	\ , 'Visual'                      : [     '',    237,               '',            '',  '3a3a3a',               '']
 	\
-	\ , 'Cursor'                      : [     '',     '',               '',      'c5c6c8',  'dd4010',               '']
-	\ , 'lCursor'                     : [     '',     '',               '',      'c5c6c8',  '89b6e2',               '']
+	\ , 'Cursor'                      : [     '',     '',               '',      'c6c6c6',  'dd4010',               '']
+	\ , 'lCursor'                     : [     '',     '',               '',      'c6c6c6',  '89b6e2',               '']
 	\
 	\ , 'CursorLine'                  : [     '',    234,               '',            '',  '1c1c1c',               '']
 	\ , 'CursorLineNr'                : [    249,    234,               '',      'b2b2b2',  '1c1c1c',               '']
-	\ , 'CursorColumn'                : [    250,    237,               '',      'c5c6c8',  '3a3a3a',               '']
+	\ , 'CursorColumn'                : [    251,    237,               '',      'c6c6c6',  '3a3a3a',               '']
 	\
 	\ , 'Folded'                      : [    249,    234,               '',      'b2b2b2',  '1c1c1c',               '']
 	\ , 'FoldColumn'                  : [    243,    234,               '',      '767676',  '1c1c1c',               '']
-	\ , 'SignColumn'                  : [    250,    233,           'bold',      'c5c6c8',  '121212',           'bold']
+	\ , 'SignColumn'                  : [    251,    233,           'bold',      'c6c6c6',  '121212',           'bold']
 	\ , 'ColorColumn'                 : [      '',   233,               '',            '',  '262626',               '']
 	\
-	\ , 'StatusLine'                  : [    250,    236,           'bold',      'c5c6c8',  '303030',           'bold']
+	\ , 'StatusLine'                  : [    251,    236,           'bold',      'c6c6c6',  '303030',           'bold']
 	\ , 'StatusLineNC'                : [    244,    232,               '',      '808080',  '080808',               '']
 	\
 	\ , 'LineNr'                      : [    234,    '',               '',       '1c1c1c',        '',               '']
 	\ , 'VertSplit'                   : [    240,    '',               '',       '585858',        '',               '']
 	\
-	\ , 'WildMenu'                    : [    234,    250,               '',      '1c1c1c',  'c5c6c8',               '']
+	\ , 'WildMenu'                    : [    234,    251,               '',      '1c1c1c',  'c6c6c6',               '']
 	\ , 'Directory'                   : [    143,     '',           'bold',      'afaf5f',        '',           'bold']
 	\ , 'Underlined'                  : [    130,     '',               '',      'af5f00',        '',               '']
 	\
@@ -68,21 +68,21 @@ call s:ColorDictParser({
 	\ , 'ErrorMsg'                    : [    196,     '',           'bold',      'ff0000',        '',           'bold']
 	\
 	\ , 'Comment'                     : [    243,    233,               '',      '767676',  '121212',               '']
-	\ , 'vimCommentTitleLeader'       : [    250,    233,               '',      'bcbcbc',  '121212',               '']
-	\ , 'vimCommentTitle'             : [    250,    233,               '',      'bcbcbc',  '121212',               '']
+	\ , 'vimCommentTitleLeader'       : [    251,    233,               '',      'bcbcbc',  '121212',               '']
+	\ , 'vimCommentTitle'             : [    251,    233,               '',      'bcbcbc',  '121212',               '']
 	\ , 'vimCommentString'            : [    245,    233,               '',      '8a8a8a',  '121212',               '']
 	\
-	\ , 'TabLine'                     : [    250,    238,               '',      'c5c6c8',  '444444',               '']
+	\ , 'TabLine'                     : [    251,    238,               '',      'c6c6c6',  '444444',               '']
 	\ , 'TabLineSel'                  : [    255,     '',           'bold',      'eeeeee',        '',           'bold']
 	\ , 'TabLineFill'                 : [    240,    238,               '',      '585858',  '444444',               '']
 	\ , 'TabLineNumber'               : [    160,    238,           'bold',      'd70000',  '444444',           'bold']
 	\ , 'TabLineClose'                : [    245,    238,           'bold',      '8a8a8a',  '444444',           'bold']
 	\
-	\ , 'SpellCap'                    : [    250,     31,           'bold',      'c5c6c8',  '0087af',           'bold']
+	\ , 'SpellCap'                    : [    251,     31,           'bold',      'c6c6c6',  '0087af',           'bold']
 	\
 	\ , 'SpecialKey'                  : [    239,     '',               '',      '4e4e4e',        '',               '']
 	\ , 'NonText'                     : [     88,     '',               '',      '870000',        '',               '']
-	\ , 'MatchParen'                  : [    250,     25,           'bold',      'c5c6c8',  '005faf',           'bold']
+	\ , 'MatchParen'                  : [    251,     25,           'bold',      'c6c6c6',  '005faf',           'bold']
 	\
 	\ , 'Constant'                    : [    137,     '',           'bold',      'af875f',        '',           'bold']
 	\ , 'Special'                     : [    150,     '',               '',      'afd787',        '',               '']
@@ -98,8 +98,8 @@ call s:ColorDictParser({
 	\ , 'Include'                     : [    173,     '',               '',      'd7875f',        '',               '']
 	\ , 'PreCondit'                   : [    173,     '',               '',      'd7875f',        '',               '']
 	\ , 'Keyword'                     : [    173,     '',               '',      'd7875f',        '',               '']
-	\ , 'Search'                      : [    250,    131,               '',      '000000',  'ffff5f', 'underline,bold']
-	\ , 'Title'                       : [    250,     '',               '',      'c5c6c8',        '',               '']
+	\ , 'Search'                      : [    251,    131,               '',      '000000',  'ffff5f', 'underline,bold']
+	\ , 'Title'                       : [    251,     '',               '',      'c6c6c6',        '',               '']
 	\ , 'Delimiter'                   : [    246,     '',               '',      '949494',        '',               '']
 	\ , 'StorageClass'                : [    187,     '',               '',      'd7d7af',        '',               '']
 	\ , 'Operator'                    : [    180,     '',               '',      'd7af87',        '',               '']
@@ -110,7 +110,7 @@ call s:ColorDictParser({
 	\ , 'SyntasticError'              : [    202,     52,               '',      'ffff87',  '875f00',           'bold']
 	\
 	\ , 'Pmenu'                       : [    248,    234,               '',      'a8a8a8',  '1c1c1c',               '']
-	\ , 'PmenuSel'                    : [    234,    250,               '',      '1c1c1c',  'c5c6c8',               '']
+	\ , 'PmenuSel'                    : [    234,    251,               '',      '1c1c1c',  'c6c6c6',               '']
 	\ , 'PmenuSbar'                   : [    253,    233,               '',      'dadada',  '121212',               '']
 	\ , 'PmenuThumb'                  : [    253,    236,               '',      'dadada',  '3a3a3a',               '']
 	\
@@ -131,7 +131,7 @@ call s:ColorDictParser({
 	\ , 'pythonDocStringTitle'        : [    245,    233,               '',      'dadada',  '121212',               '']
 	\ , 'pythonRun'                   : [     65,     '',               '',      '5f875f',        '',               '']
 	\ , 'pythonBuiltinObj'            : [     67,     '',           'bold',      '5f87af',        '',           'bold']
-	\ , 'pythonSelf'                  : [    250,     '',           'bold',      'bcbcbc',        '',           'bold']
+	\ , 'pythonSelf'                  : [    251,     '',           'bold',      'bcbcbc',        '',           'bold']
 	\ , 'pythonFunction'              : [    179,     '',           'bold',      'd7af5f',        '',           'bold']
 	\ , 'pythonClass'                 : [    221,     '',           'bold',      'ffd75f',        '',           'bold']
 	\ , 'pythonExClass'               : [    130,     '',               '',      'af5f00',        '',               '']
@@ -154,7 +154,7 @@ call s:ColorDictParser({
 	\ , 'CTagsMember'                 : [    145,     '',               '',      'afafaf',        '',               '']
 	\
 	\ , 'xmlTag'                      : [    149,     '',           'bold',      'afd75f',        '',           'bold']
-	\ , 'xmlTagName'                  : [    250,     '',               '',      'bcbcbc',        '',               '']
+	\ , 'xmlTagName'                  : [    251,     '',               '',      'bcbcbc',        '',               '']
 	\ , 'xmlEndTag'                   : [    209,     '',           'bold',      'ff875f',        '',           'bold']
 	\
 	\ , 'cssImportant'                : [    166,     '',           'bold',      'd75f00',        '',           'bold']
